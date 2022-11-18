@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet"  type="text/css">
+    <script src="js/fucoes.js" type="text/javascript"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - função</title>
+     
+</head>
+      <!--css-->
+     <style>
+         *{
+    margin: 0;
+    padding: 0;
+         }
+        .fundo{
+    background-image: linear-gradient(1deg,#000000,#ffa500);
+    height: 100vh;
+    color:#fff;
+    text-align: center;
+    }
+    #x12{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-200%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top:100px;
+    }
+    #num{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top:120px;
+    }
+    #elevado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top:228px;
+    }
+     </style>
+         <!--HTML-->
+       <div class="fundo">
+        <h1>Ana Mascarenhas</h1>
+        <div class="calculadora">
+        <h1>Calculadora</h1>
+        <p id="resultado"></p>
+    </div>
+         <!--HTML para os botão-->
+         <table class="table">
+            <br>  <br>
+          <h3>Digite a base: </h3> 
+          <input type="text" id="num" size="13"><br>
+          <br> <br>  <br> <br>
+          <h3>Digite o expoente: </h3> 
+          <input type="text" id="elevado" size="13">
+          <br> <br> <br> <br> <br> <br>
+          <button onclick="Potencia()">Calcular</button>
+          <br> <br> <br>
+          <h3>Resultado</h3>
+          <p id="resultado-potencia">
+            <br> <br>  <br>
+          <a href="index.html">Voltar para à página inicial</a>
+            <!--mostrar om resultado-->
+          </p>
+        </table>
+</body>
+
+         <!--JS para a potencia-->
+     <script>
+        function Potencia(){
+          num = document.getElementById("num").value;
+          elevado = document.getElementById("elevado").value;
+          resultado = Math.pow(parseFloat(num), parseFloat(elevado));
+
+          document.getElementById("resultado-potencia").innerHTML = resultado;
+        }
+     </script>
+</html>
+
+
+   

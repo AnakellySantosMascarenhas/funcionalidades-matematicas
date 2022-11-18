@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet"  type="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - função</title>
+     
+</head>
+      <!--css-->
+     <style>
+         *{
+    margin: 0;
+    padding: 0;
+         }
+        .fundo{
+    background-image: linear-gradient(1deg,#000000,#800080);
+    height: 100vh;
+    color:#fff;
+    text-align: center;
+    }
+    #a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top:150px;
+    }
+    #b{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top:225px;
+    }
+    #c{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top: 300px;
+    }
+    
+    
+     
+
+     </style>
+         <!--HTML-->
+       <div class="fundo">
+        <h1>Ana Mascarenhas</h1>
+        <div class="calculadora">
+        <h1>Calculadora</h1>
+    </div>
+         <!--HTML para os botão-->
+         <table class="table">
+            <input type="text" id="a" size="13"><br>
+            <input type="text" id="b" size="13"><br>
+            <input type="text" id="c" size="13"><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <button onclick="Bhaskara()">Calcular</button>
+            <br>
+            <br>
+            <h3>Resultado</h3>
+            <p id="resultado-bhaskara1"><br><br><br>
+                <!--mostrar o resultado-->
+            </p>
+            <p id="resultado-bhaskara2">
+                <!--mostrar o resultado-->
+            </p>
+
+            <p id="resultado-bhaskara3">
+                <!--mostrar o resultado-->
+            </p>
+            <a href="index.html">Voltar para à página inicial</a>
+         </table>
+</body>
+
+         <!--JS para a bhaskara-->
+     <script>
+        function Bhaskara(){
+          a = document.getElementById("a").value;
+          b = document.getElementById("b").value;
+          c = document.getElementById("c").value;
+          
+          delta = eval(parseFloat((b * b) -4 * a * c));
+          document.getElementById("resultado-bhaskara1").innerHTML = "delta = " + delta;
+        
+          if(delta < 0){
+          document.getElementById("resultado-bhaskara2").innerHTML = "O delta é negativo. Equação não possui raizes reais.";
+
+          }else if(delta == 0){
+            x1 = eval(parseFloat((-b + Math.sqrt(delta)) / (2 * a)));
+            document.getElementById("resultado-bhaskara2").innerHTML = "X1 e X2 = " + x1;
+              
+          }else{
+            x1 = eval(parseFloat((-b + Math.sqrt(delta)) / (2 * a)));
+            x2 = eval(parseFloat((-b - Math.sqrt(delta)) / (2 * a)));
+            document.getElementById("resultado-bhaskara2").innerHTML = "X1 = " + x1;
+            document.getElementById("resultado-bhaskara3").innerHTML = "X2 = " + x2;
+            
+            
+          }
+
+         
+          document.getElementById("resultado-bhaskara2").innerHTML = resultado1;
+          document.getElementById("resultado-bhaskara3").innerHTML = resultado2;
+
+        }
+     </script>
+</html>
+
+
+   

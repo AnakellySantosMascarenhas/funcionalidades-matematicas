@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet"  type="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - função</title>
+     
+</head>
+      <!--css-->
+     <style>
+         *{
+    margin: 0;
+    padding: 0;
+         }
+        .fundo{
+    background-image: linear-gradient(1deg,#000000,#ff0000);
+    height: 100vh;
+    color:#fff;
+    text-align: center;
+    }
+    #x12{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-200%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top:100px;
+    }
+    #numraiz{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top: 130px;
+    }
+     </style>
+         <!--HTML-->
+       <div class="fundo">
+        <h1>Ana Mascarenhas</h1>
+        <div class="calculadora">
+        <h1>Calculadora</h1>
+        <p id="resultado"></p>
+    </div>
+         <!--HTML para os botão-->
+         <table class="table">
+            <input type="text" id="numraiz" size="13"><br>
+            <br><br><br><br><br><br><br><br>
+            <button onclick="Raiz()">Calcular</button>
+            <br><br>
+            <h3>Resultado</h3>
+            <p id="resultado-raiz">
+            <br><br>
+              <!--mostrar o resultado-->
+            <a href="index.html">Voltar para à página inicial</a>
+            </p>
+         </table>
+</body>
+
+         <!--JS para a raiz quadrada-->
+     <script>
+        function Raiz(){
+          num = document.getElementById("numraiz").value;
+          resultado = Math.sqrt(parseFloat(num));
+         
+          document.getElementById("resultado-raiz").innerHTML = resultado;
+        }
+     </script>
+</html>
+
+
+   

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet"  type="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - função</title>
+     
+</head>
+     <!--css da calculadora(4 operações-básicas)-->
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+.fundo{
+    background-image: linear-gradient(5deg,#000000,#0000ff);
+    height: 100vh;
+    color:#fff;
+    text-align: center;
+
+}
+.calculadora{
+ position: absolute;
+ background-color: rgba(0,0,0,0.8);
+ top: 50%;
+ left: 50%;
+ transform: translate(-0%,50%);
+ border-radius: 15px;
+ padding: 1%;
+ top:5px;
+}
+.botao{
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  margin: 2px;
+  cursor: pointer;
+  background-color: rgb(31,31,31);
+  border: none;
+  color:#fff;
+}
+.botao:hover{
+ background-color: #000;
+}
+#resultado{
+  width: 207px;
+  background-color:#fff;
+  height:35px;
+  margin: 8px;
+  font-size: 25px;
+  color:#000;
+  text-align: right;
+}
+
+    /* css das demais funções*/
+body{
+    background-color: #fff;
+    text-align: center;
+}
+.btn{
+    width: 250px;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.btn:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#bha{
+    position: absolute;
+    background-color:#800080 ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-135%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top:180px;
+    
+}
+#rai{
+    position: absolute;
+    background-color:#ff0000 ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-135%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top:280px;
+    
+}
+#are{
+    position: absolute;
+    background-color:#008000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-135%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top:380px;
+   
+}
+#pot{
+    position: absolute;
+    background-color:#ffa500 ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-135%,50%);
+    border-radius: 8px;
+    padding: 1%;
+    top:480px;
+}
+</style>
+       <div class="fundo">
+        <h1>Ana Mascarenhas</h1><br><br>
+        <div class="calculadora">
+        <h1>Calculadora</h1>
+        <p id="resultado"></p>
+
+
+
+              <!--HTML da calculadora(4 operações-básicas)-->
+        <table>
+            <tr>
+                <td><button class="botao" onclick="clean()">C</button></td>
+                <td><button class="botao" onclick="back()"><</button></td>
+                <td><button class="botao" onclick="insert('%')">%</button></td>
+                <td><button class="botao" onclick="insert('/')">/</button></td>
+            </tr>
+
+            <tr>
+                <td><button class="botao" onclick="insert('7')">7</button></td>
+                <td><button class="botao" onclick="insert('8')">8</button></td>
+                <td><button class="botao" onclick="insert('9')">9</button></td>
+                <td><button class="botao" onclick="insert('*')">x</button></td>
+            </tr>
+
+            <tr>
+                <td><button class="botao" onclick="insert('4')">4</button></td>
+                <td><button class="botao" onclick="insert('5')">5</button></td>
+                <td><button class="botao" onclick="insert('6')">6</button></td>
+                <td><button class="botao" onclick="insert('-')" >-</button></td>
+            </tr>
+
+            <tr>
+                <td><button class="botao" onclick="insert('1')">1</button></td>
+                <td><button class="botao" onclick="insert('2')">2</button></td>
+                <td><button class="botao" onclick="insert('3')">3</button></td>
+                <td><button class="botao" onclick="insert('+')">+</button></td>
+            </tr>
+
+            <tr>
+                <td><button class="botao"onclick="insert('0')">0</button></td>
+                <td><button class="botao" onclick="insert(',')">,</button></td>
+                <td><button class="botao" onclick="insert('.')">.</button></td>
+                <td><button class="botao" onclick="calcular()">=</button></td>
+            </tr>
+
+
+               <!--HTML das demais funções-->
+            </table>
+          </div>
+          <div class="Funções">
+            <h1>Funções</h1><br>
+           <div class="escolha">
+              Escolha a operação:
+
+           </div>
+           <button type="button" class="btn btn-outline" id="bha"><a href="bhaskara.html">Bhaskara</a></button> <br><br></a>
+           <button type="button" class="btn btn-outline" id="rai"><a href="raiz quadrada.html">Raiz quadrada</a></button> <br><br>
+           <button type="button" class="btn btn-outline" id="are"><a href="area do triangulo.html">Área do triâgulo</a></button> <br><br>
+           <button type="button" class="btn btn-outline" id="pot"><a href="potencia.html">Potência</a></button> <br><br>
+          
+      </div>
+
+
+         <!--JS da calculadora(4 operações-básicas)-->
+      <script>
+        function insert(num){
+          var numero = document.getElementById('resultado').innerHTML;
+          document.getElementById('resultado').innerHTML = numero +num;
+        }
+        function clean()
+        {
+            document.getElementById('resultado').innerHTML = "";
+        }
+        function back()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = resultado.substring(0,resultado.length -1);
+        }
+        function calcular()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            if(resultado)
+            {
+                document.getElementById('resultado').innerHTML  = eval(resultado);
+            }
+            else 
+            {
+                document.getElementById('resultado').innerHTML  = "nada para calcular";
+            }
+        }
+      </script>
+</body>
+
+         <!--JS das demais funções-->
+     <script>
+        function Bhaskara(){
+          a = document.getElementById("a").value;
+          b = document.getElementById("b").value;
+          c = document.getElementById("c").value;
+          delta = eval(perseInt(Math,pow(b, 2) - 4*a*c));
+
+          x1 = eval(parseInt(( -b + Math.sqrt(delta)) /2*a));
+          x2 = eval(parseInt(( -b + Math.sqrt(delta)) /2*a));
+
+          document.getElementById("resultado-x1").innerHTML = X1;
+          document.getElementById("resultado-x2").innerHTML = X2;
+        }
+     </script>
+</html>
+
+
+   
